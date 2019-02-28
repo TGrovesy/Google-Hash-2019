@@ -5,9 +5,13 @@ import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.Map;
 import java.util.Scanner;
 
 public class Main {
+
+	
 
 	public Main() {
 
@@ -36,7 +40,7 @@ public class Main {
 	ArrayList<ArrayList<String>> tags = new ArrayList<ArrayList<String>>();
 	char[] photoOreintation;
 
-	private void readInFile() {
+	private void readInFile() {	
 		try {
 			Scanner sc = new Scanner(new File("e_shiny_selfies.txt"));
 			String firstLine = sc.nextLine();
@@ -73,7 +77,6 @@ public class Main {
 	public static void main(String[] args) {
 		Main main = new Main();
 		main.readInFile();
-		int photoID = 79979;
 		/*
 		 * System.out.print("Orientation: " + main.photoOreintation[photoID] +
 		 * " "); for (int i = 0; i < main.tags.get(photoID).size(); i++) {
@@ -94,13 +97,12 @@ public class Main {
 				}
 
 				System.out.println(i);
-				out.append( "\n\n");
+				out.append("\n\n");
 			}
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
 	}
 
 }
