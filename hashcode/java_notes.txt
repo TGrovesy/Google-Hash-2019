@@ -1,0 +1,70 @@
+static ArrayList<Image> images;
+
+Public Class Image{
+    Integer photoid;
+    ArrayList<String> tags;
+    String orientation;
+
+    Image(String photid, ArrayList<String>tags, String orientation){
+      this.photoid = photid;
+      this.tags = tags;
+      this.orientation = orientation;
+    }
+}
+public int calculateScore(current_image, next_image){
+  int l_score = 0;  //unique to current image
+  int m_score = 0;  //shared
+  int r_score = 0;  //unique to next image
+
+  HashSet<String> map = new HashSet<String>(); //hash set of tags for comparison. O(n) complexity
+
+  //Add Tags
+  for(String tag : current_image.tags){
+      map.add(tag);
+  }
+  for(String tag : next_image.tags){
+      if(map.contains(tag)){
+        m_score ++
+      }else r_score ++;
+  }
+  l_score = current_image.tags.length() - m_score;
+  int score = l_score;
+  if(score > r_score) score = r_score;
+  if(score > m_score) score = m_score;
+  return score;
+}
+
+
+public void calc(image X){
+        image X = [tag1, tag2 ... tagN]
+        for tag in X:
+                  len(bucket[tag])
+                  smallest_bucket = X
+                  if bucket[X].length() < smallest_bucket:
+                        smallest_bucket = bucket[x]
+        score = 0
+        next_image = None
+        for each in bucket[x]:
+                scr = calculateScore(x, each)
+                if scr > score:
+                        score = scr
+                        next_image = each
+
+
+
+public static void main(){
+  //Image start_image = new Image(photoid, tags, orientation)
+  Image startImage;
+  for(Image image: images{
+    if(startImage == null){
+      startImage = i;
+    }else if(i.tags.size() > startImage.tags.size()){
+      startImage = i;
+    }
+  }
+  // read in all images into  object notation
+  for(int i=0; i<photos.size(); i++){
+    images.append(new Image(photos[i], tags[i], orientation[i]));
+  }
+  calc(Image X);
+}
